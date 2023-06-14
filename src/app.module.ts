@@ -17,13 +17,10 @@ import { configValidationSchema } from "./config.schema";
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
           // ssl: configService.get('STAGE') === 'prod',
-          uri: `mongodb+srv://${configService.get('MONGODB_USER_NAME')}:${configService.get('MONGODB_USER_PASSWORD')}@${configService.get('MONGODB_CLUSTER')}.azpws6v.mongodb.net/${configService.get('MONGODB_COLLECTION')}`,
+          uri: `mongodb+srv://${process.env.MONGODB_USER_NAME}:${process.env.MONGODB_USER_PASSWORD}@${process.env.MONGODB_CLUSTER}.azpws6v.mongodb.net/${process.env.MONGODB_COLLECTION}`,
           useNewUrlParser: true
       })
     }),
-    // MongooseModule
-    //   .forRoot(`mongodb+srv://prod_user:nhWqIcnM5jkGgvwP@cluster0.azpws6v.mongodb.net/shorten-url-prod`,
-    //     {useNewUrlParser: true}),
   UrlModule],
   controllers: [AppController],
   providers: [AppService],

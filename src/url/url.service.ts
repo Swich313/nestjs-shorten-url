@@ -20,7 +20,7 @@ export class UrlService {
   async shortenUrl(url: UrlDto): Promise<UrlDocument> {
       const {longUrl} = url;
 
-    const baseUrl = this.configService.get('BASE_URL');
+    const baseUrl = process.env.BASE_URL;
       const urlCode = nanoid(10);
       try {
         let url = await this.UrlModel.findOne({longUrl});
