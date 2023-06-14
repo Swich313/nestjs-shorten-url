@@ -21,9 +21,6 @@ import { configValidationSchema } from "./config.schema";
           useNewUrlParser: true
       })
     }),
-    // MongooseModule
-    //   .forRoot(`mongodb+srv://prod_user:nhWqIcnM5jkGgvwP@cluster0.azpws6v.mongodb.net/shorten-url-prod`,
-    //     {useNewUrlParser: true}),
   UrlModule],
   controllers: [AppController],
   providers: [AppService],
